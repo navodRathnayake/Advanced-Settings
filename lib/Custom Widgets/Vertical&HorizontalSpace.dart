@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-class VericalSpace extends StatelessWidget {
+class VerticalSpace extends StatelessWidget {
   final double height;
-  const VericalSpace({super.key, required this.height});
+  const VerticalSpace({super.key, required this.height});
 
   @override
   Widget build(BuildContext context) {

@@ -1,10 +1,23 @@
 import 'package:flutter/material.dart';
 
 class CustomizedSettingsIcon extends StatelessWidget {
-  const CustomizedSettingsIcon({super.key});
+  ThemeData themedata;
+  CustomizedSettingsIcon({super.key, required this.themedata});
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Container(
+      decoration: BoxDecoration(
+          border: Border.all(color: themedata.primaryColor, width: 2),
+          borderRadius: BorderRadius.circular(15)),
+      child: IconButton(
+        icon: Icon(
+          Icons.settings,
+          color: themedata.primaryColor,
+          size: 30,
+        ),
+        onPressed: () {},
+      ),
+    );
   }
 }
