@@ -1,6 +1,7 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:setting/Activity/HomeActivity.dart';
+import 'package:setting/Activity/SettingsActivity.dart';
 import 'package:setting/Theme/UIThemeMode.dart';
 
 void main() {
@@ -13,12 +14,18 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double screenWidth = window.physicalSize.width;
+    ThemeData themedata = Theme.of(context);
     return MaterialApp(
-        title: 'Advanced Settings',
-        theme: UIThemeMode.lightTheme(screenWidth),
-        darkTheme: UIThemeMode.darkTheme(screenWidth),
-        themeMode: ThemeMode.light,
-        home: const HomeActivity(),
-        debugShowCheckedModeBanner: false);
+      title: 'Advanced Settings',
+      theme: UIThemeMode.lightTheme(screenWidth),
+      darkTheme: UIThemeMode.darkTheme(screenWidth),
+      themeMode: ThemeMode.dark,
+      home: HomeActivity(themedata: themedata),
+      debugShowCheckedModeBanner: false,
+      routes: <String, WidgetBuilder>{
+        'settings': (context) => SettingsActivty(themedata: themedata),
+        'home': (context) => HomeActivity(themedata: themedata)
+      },
+    );
   }
 }

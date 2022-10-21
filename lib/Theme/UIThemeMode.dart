@@ -5,9 +5,9 @@ class UIThemeMode {
   static ThemeData lightTheme(double screenWidth) {
     return ThemeData(
       brightness: Brightness.light,
-      textTheme: screenWidth < 750 ? smallLight : defaultDark,
+      textTheme: screenWidth < 750 ? smallLight : defaultLight,
       primaryColor: Colors.black,
-      secondaryHeaderColor: Colors.amber,
+      secondaryHeaderColor: Colors.grey,
       iconTheme: const IconThemeData(color: Colors.black),
     );
   }
@@ -17,7 +17,7 @@ class UIThemeMode {
         brightness: Brightness.dark,
         textTheme: screenWidth < 750 ? smallDark : defaultDark,
         primaryColor: Colors.white,
-        secondaryHeaderColor: Colors.blueAccent,
+        secondaryHeaderColor: Colors.grey,
         iconTheme: const IconThemeData(color: Colors.white));
   }
 }

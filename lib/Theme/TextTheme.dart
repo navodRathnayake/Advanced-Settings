@@ -13,6 +13,8 @@ TextTheme defaultLight = const TextTheme(
       TextStyle(color: Colors.black, fontWeight: FontWeight.w700, fontSize: 24),
   headline6:
       TextStyle(color: Colors.black, fontWeight: FontWeight.w700, fontSize: 22),
+  subtitle1:
+      TextStyle(color: Colors.grey, fontWeight: FontWeight.w100, fontSize: 12),
 );
 
 TextTheme smallLight = const TextTheme(
@@ -28,6 +30,8 @@ TextTheme smallLight = const TextTheme(
       TextStyle(color: Colors.black, fontWeight: FontWeight.w700, fontSize: 14),
   headline6:
       TextStyle(color: Colors.black, fontWeight: FontWeight.w700, fontSize: 12),
+  subtitle1:
+      TextStyle(color: Colors.grey, fontWeight: FontWeight.w100, fontSize: 12),
 );
 
 TextTheme defaultDark = const TextTheme(
@@ -43,6 +47,8 @@ TextTheme defaultDark = const TextTheme(
       TextStyle(color: Colors.white, fontWeight: FontWeight.w700, fontSize: 24),
   headline6:
       TextStyle(color: Colors.white, fontWeight: FontWeight.w700, fontSize: 22),
+  subtitle1:
+      TextStyle(color: Colors.grey, fontWeight: FontWeight.w100, fontSize: 12),
 );
 
 TextTheme smallDark = const TextTheme(
@@ -58,4 +64,6 @@ TextTheme smallDark = const TextTheme(
       TextStyle(color: Colors.white, fontWeight: FontWeight.w700, fontSize: 14),
   headline6:
       TextStyle(color: Colors.white, fontWeight: FontWeight.w700, fontSize: 12),
+  subtitle1:
+      TextStyle(color: Colors.grey, fontWeight: FontWeight.w100, fontSize: 12),
 );

@@ -3,7 +3,8 @@ import 'package:setting/Custom%20Widgets/CustomizedSettingsIcon.dart';
 import 'package:setting/Custom%20Widgets/Vertical&HorizontalSpace.dart';
 
 class HomeActivity extends StatefulWidget {
-  const HomeActivity({super.key});
+  ThemeData themedata;
+  HomeActivity({super.key, required this.themedata});
 
   @override
   State<HomeActivity> createState() => _HomeActivityState();

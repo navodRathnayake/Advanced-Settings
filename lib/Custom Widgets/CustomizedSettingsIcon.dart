@@ -16,7 +16,9 @@ class CustomizedSettingsIcon extends StatelessWidget {
           color: themedata.primaryColor,
           size: 30,
         ),
-        onPressed: () {},
+        onPressed: () {
+          Navigator.pushNamed(context, 'settings');
+        },
       ),
     );
   }
