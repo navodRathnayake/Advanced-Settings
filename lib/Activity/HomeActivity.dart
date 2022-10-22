@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:setting/Custom%20Widgets/CustomizedSettingsIcon.dart';
 import 'package:setting/Custom%20Widgets/Vertical&HorizontalSpace.dart';
+import 'package:setting/Models/UIModel.dart';
+import 'package:setting/Theme/UIThemeMode.dart';
+
+import '../Database/sqfliteHelper.dart';
 
 class HomeActivity extends StatefulWidget {
   ThemeData themedata;
@@ -11,6 +16,18 @@ class HomeActivity extends StatefulWidget {
 }
 
 class _HomeActivityState extends State<HomeActivity> {
+  Future<int> themeModeData() async {
+    var result = await SqfliteHelper.instance.readMode();
+    print(result);
+    return result;
+  }
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     ThemeData themedata = Theme.of(context);
@@ -43,6 +60,13 @@ class _HomeActivityState extends State<HomeActivity> {
           ),
         ),
       ),
+      floatingActionButton: FloatingActionButton.small(onPressed: () {
+        if (themeModeData() == 1) {
+          Provider.of<UIModel>(context, listen: false).toggleAction(true);
+        } else if (themeModeData() == 0) {
+          Provider.of<UIModel>(context, listen: false).toggleAction(false);
+        }
+      }),
     );
   }
 }

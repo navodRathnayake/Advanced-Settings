@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:setting/Custom%20Widgets/Vertical&HorizontalSpace.dart';
+import 'package:setting/Database/sqfliteHelper.dart';
 import 'package:setting/Models/UIModel.dart';
 
 class SettingsActivty extends StatefulWidget {
@@ -13,6 +14,7 @@ class SettingsActivty extends StatefulWidget {
 }
 
 class _SettingsActivtyState extends State<SettingsActivty> {
+  @override
   @override
   Widget build(BuildContext context) {
     ThemeData themedata = Theme.of(context);
