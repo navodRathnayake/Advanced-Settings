@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:setting/Custom%20Widgets/Vertical&HorizontalSpace.dart';
-import 'package:setting/Database/sqfliteHelper.dart';
-import 'package:setting/Models/UIModel.dart';
+import 'package:setting/Custom%20Widgets/verticle_and_horizontal_space.dart';
+import 'package:setting/Models/ui_model.dart';
 
+// ignore: must_be_immutable
 class SettingsActivty extends StatefulWidget {
   final ThemeData themedata;
   bool isSelected = false;

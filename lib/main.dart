@@ -1,17 +1,31 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:setting/Activity/HomeActivity.dart';
-import 'package:setting/Activity/SettingsActivity.dart';
-import 'package:setting/Models/UIModel.dart';
-import 'package:setting/Theme/UIThemeMode.dart';
+import 'package:setting/Activity/home_activity.dart';
+import 'package:setting/Activity/settings_activity.dart';
+import 'package:setting/Models/ui_model.dart';
+import 'package:setting/Theme/ui_theme_mode.dart';
 
-void main() {
-  runApp(const MyApp());
+import 'Database/sqflite_helper.dart';
+
+Future<void> main() async {
+  ThemeMode mode;
+  WidgetsFlutterBinding.ensureInitialized();
+  mode = await getThemeMode();
+  runApp(MyApp(
+    themeMode: mode,
+  ));
+}
+
+Future<ThemeMode> getThemeMode() async {
+  final int result = await SqfliteHelper.instance.readMode();
+  final ThemeMode themeMode = result == 1 ? ThemeMode.dark : ThemeMode.light;
+  return themeMode;
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  final ThemeMode themeMode;
+  const MyApp({super.key, required this.themeMode});
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +34,7 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(
-          create: (context) => UIModel(),
+          create: (context) => UIModel(thememode: themeMode),
         )
       ],
       builder: (context, child) {

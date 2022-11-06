@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:setting/Custom%20Widgets/CustomizedSettingsIcon.dart';
-import 'package:setting/Custom%20Widgets/Vertical&HorizontalSpace.dart';
-import 'package:setting/Models/UIModel.dart';
-import 'package:setting/Theme/UIThemeMode.dart';
+import 'package:setting/Custom%20Widgets/customized_settings_icon.dart';
+import 'package:setting/Custom%20Widgets/verticle_and_horizontal_space.dart';
 
-import '../Database/sqfliteHelper.dart';
+import '../Database/sqflite_helper.dart';
 
+// ignore: must_be_immutable
 class HomeActivity extends StatefulWidget {
   ThemeData themedata;
   HomeActivity({super.key, required this.themedata});
@@ -18,14 +16,7 @@ class HomeActivity extends StatefulWidget {
 class _HomeActivityState extends State<HomeActivity> {
   Future<int> themeModeData() async {
     var result = await SqfliteHelper.instance.readMode();
-    print(result);
     return result;
-  }
-
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
   }
 
   @override
@@ -47,7 +38,7 @@ class _HomeActivityState extends State<HomeActivity> {
                       children: [
                         Text('Advanced Settings UI',
                             style: themedata.textTheme.headline1),
-                        Text('flutter-sqflite database'),
+                        const Text('flutter-sqflite database'),
                       ],
                     ),
                   ),
@@ -55,18 +46,12 @@ class _HomeActivityState extends State<HomeActivity> {
                     themedata: themedata,
                   )
                 ],
-              )
+              ),
+              const VerticalSpace(height: 10),
             ],
           ),
         ),
       ),
-      floatingActionButton: FloatingActionButton.small(onPressed: () {
-        if (themeModeData() == 1) {
-          Provider.of<UIModel>(context, listen: false).toggleAction(true);
-        } else if (themeModeData() == 0) {
-          Provider.of<UIModel>(context, listen: false).toggleAction(false);
-        }
-      }),
     );
   }
 }

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:setting/Theme/TextTheme.dart';
+import 'package:setting/Theme/text_theme.dart';
 
 class UIThemeMode {
   static ThemeData lightTheme(double screenWidth) {

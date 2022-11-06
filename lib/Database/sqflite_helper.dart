@@ -1,11 +1,11 @@
 import 'package:sqflite/sqflite.dart';
+// ignore: depend_on_referenced_packages
 import 'package:path/path.dart';
 
 class SqfliteHelper {
-  var _databasePath;
   static const databaseName = 'settings.db';
   static Database? _database;
-  static SqfliteHelper instance = SqfliteHelper._init();
+  static final SqfliteHelper instance = SqfliteHelper._init();
   SqfliteHelper._init();
 
   Future<Database> get database async {
